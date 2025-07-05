@@ -1,3 +1,5 @@
+//use your own API endpoint and headers
+// This code is designed to stream responses from a weather agent API.
 const API_ENDPOINT = 'https://brief-thousands-sunset-9fcb1c78-485f-4967-ac04-2759a8fa1462.mastra.cloud/api/agents/weatherAgent/stream';
 const API_HEADERS = {
   'Accept': '*/*',
