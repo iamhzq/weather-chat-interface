@@ -8,23 +8,19 @@ function MessageBubble({ message, showSpinner }) {
   const isSystem = message.role === 'system'; // For error/info messages
 
   // Determine heading label
-  let heading = '';
-  if (isUser) heading = 'You';
-  else if (isAgent) heading = 'Weather Agent';
-  else if (isSystem) heading = '';
+  // let heading = '';
+  // if (isUser) heading = 'You';
+  // else if (isAgent) heading = 'Weather Agent';
+  // else if (isSystem) heading = '';
 
   return (
     <div className={`message-bubble-wrapper ${isUser ? 'user-message-wrapper' : 'agent-message-wrapper'}`}>
-      <div className={`message-bubble ${isUser ? 'user-message' : isAgent ? 'agent-message' : 'system-message'}`}>
-        {/* Heading/label above the message */}
-        {heading && (
-          <div className={`message-heading ${isUser ? 'user-heading' : 'agent-heading'}`}>{heading}</div>
-        )}
+      <div className={`message-bubble ${isUser ? 'user-message' : isAgent ? 'agent-message' : 'system-message'}`} style={{ background: '#fff', color: '#1e293b', fontFamily: 'Inter, sans-serif' }}>
         <p className="message-content">
           {message.content}
-          {showSpinner && (
+          {/* {showSpinner && (
             <span className="buffering-spinner" style={{ marginLeft: 8, verticalAlign: 'middle' }} />
-          )}
+          )} */}
         </p>
         {/* Display timestamp only if available and not a system message */}
         {message.timestamp && !isSystem && (

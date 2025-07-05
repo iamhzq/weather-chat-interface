@@ -99,43 +99,43 @@ function ChatWindow() {
   };
 
   return (
-    <div className="chat-window">
+    <div className="chat-window" style={{ background: '#fff', color: '#1e293b', fontFamily: 'Inter, sans-serif' }}>
       {/* Chat Header */}
-      <div className="chat-header">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <img src={botLogo} alt="Bot Logo" style={{ width: 36, height: 36, borderRadius: '50%', background: '#fff', boxShadow: '0 1px 4px rgba(0,0,0,0.08)' }} />
-          <h1 className="chat-title" style={{ margin: 0 }}>Weather Agent</h1>
-        </div>
+      <div className="chat-header" style={{ background: '#fff', color: '#1e293b' }}>
         <button onClick={handleClearChat} className="clear-chat-button">
           Clear Chat
         </button>
       </div>
 
-      {/* Message Display Area */}
-      <div className="messages-display">
-        {messages.length === 0 && (
-          <div className="empty-chat-message">
-            Start by asking about the weather!<br />
-            <span style={{fontSize: '0.95em', color: '#888'}}>E.g., "What's the weather in London?"<br />"Will it rain in Mumbai tomorrow?"<br />"Forecast for Paris next week?"</span>
-          </div>
-        )}
-        {messages.map((msg, idx) => {
-  const isStreamingAgent =
-    msg.role === 'agent' && msg.isStreaming && isLoading && idx === messages.length - 1;
-  return (
-    <MessageBubble
-      key={msg.id}
-      message={{
-        ...msg,
-        content:
-          msg.role === 'agent' && typeof msg.content === 'string'
-            ? msg.content.replace(/\s*\n+\s*/g, ' ').replace(/\s+/g, ' ').trim()
-            : msg.content,
-      }}
-      showSpinner={isStreamingAgent}
-    />
-  );
-})}
+        <div className="messages-display" style={{ background: '#fff', color: '#1e293b' }}>
+          {messages.length === 0 && (
+            <div className="empty-chat-message">
+          Start by asking about the weather!<br />
+          <span style={{fontSize: '0.95em', color: '#888'}}>
+            E.g., "What's the weather in London?"<br />
+            "Will it rain in Mumbai today?"<br />
+            "Current weather in Paris?"<br />
+            {/* <b>Note:</b> The agent cannot answer future prediction questions. */}
+          </span>
+            </div>
+          )}
+          {messages.map((msg, idx) => {
+          const isStreamingAgent =
+            msg.role === 'agent' && msg.isStreaming && isLoading && idx === messages.length - 1;
+          return (
+            <MessageBubble
+              key={msg.id}
+              message={{
+                ...msg,
+                content:
+                  msg.role === 'agent' && typeof msg.content === 'string'
+                    ? msg.content.replace(/\s*\n+\s*/g, ' ').replace(/\s+/g, ' ').trim()
+                    : msg.content,
+              }}
+              showSpinner={isStreamingAgent}
+            />
+          );
+        })}
         {/* Display general error messages */}
         {error && (
           <div className="error-message">
@@ -146,7 +146,7 @@ function ChatWindow() {
       </div>
 
       {/* Message Input Area */}
-      <div className="message-input-area">
+      <div className="message-input-area" style={{ background: '#fff', color: '#1e293b' }}>
         <MessageInput
           value={inputMessage}
           onChange={setInputMessage}

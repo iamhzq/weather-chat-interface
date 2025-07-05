@@ -1,4 +1,5 @@
 import React from 'react';
+import sendImg from '../assets/send.jpg';
 import './MessageInput.css'; // Import component-specific CSS
 
 function MessageInput({ value, onChange, onSend, isLoading }) {
@@ -23,11 +24,11 @@ function MessageInput({ value, onChange, onSend, isLoading }) {
       />
       <button
         onClick={onSend}
-        // Disable button if loading or input is empty/just whitespace
         disabled={isLoading || !value.trim()}
         className="send-button"
+        style={{ padding: 0, background: 'transparent', border: 'none', boxShadow: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
       >
-        Send
+        <img src={sendImg} alt="Send" style={{ width: 28, height: 28, objectFit: 'contain', filter: isLoading || !value.trim() ? 'grayscale(80%) opacity(0.5)' : 'none' }} />
       </button>
     </div>
   );

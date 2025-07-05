@@ -4,12 +4,7 @@ import './App.css';
 
 function App() {
   // Theme state: 'light' | 'dark'
-  const [theme, setTheme] = useState(() => {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    return 'light';
-  });
+  const [theme, setTheme] = useState('light');
 
   useEffect(() => {
     document.body.classList.toggle('dark', theme === 'dark');
