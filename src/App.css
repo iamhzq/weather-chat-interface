@@ -1,0 +1,50 @@
+/* Theme root variables */
+:root {
+  --color-bg-light: #f0f2f5;
+  --color-bg-dark: #181a1b;
+  --color-text-light: #222;
+  --color-text-dark: #f3f4f6;
+}
+
+/* Styles for the main application container */
+
+.app-container {
+  min-height: 100vh; /* Takes full viewport height */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  background-color: var(--color-bg-light); /* Light gray background */
+  color: var(--color-text-light);
+  padding: 16px; /* Basic padding for smaller screens */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+  transition: background 0.3s, color 0.3s;
+}
+
+.dark .app-container {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+/* Basic responsiveness for padding */
+@media (min-width: 640px) { /* Small screens (e.g., larger phones) and up */
+  .app-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 768px) { /* Medium screens (e.g., tablets) and up */
+  .app-container {
+    padding: 32px;
+  }
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f0f2f5 100%);
+  /* fallback for dark mode */
+  transition: background 0.4s;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #23272f 0%, #181a1b 100%);
+}

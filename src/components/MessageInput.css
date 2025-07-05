@@ -1,0 +1,89 @@
+/* Styles for the message input area */
+.message-input-container {
+  display: flex;
+  gap: 12px; /* Space between input field and send button */
+}
+
+.message-input-field {
+  flex: 1; /* Makes input field take available space */
+  padding: 12px 16px;
+  border-radius: 9999px; /* Fully rounded for a pill shape */
+  border: 1px solid #d1d5db; /* Gray-300 border */
+  font-size: 1rem;
+  color: #374151; /* Gray-800 text */
+  transition: all 0.2s ease-in-out; /* Smooth transition for focus states */
+}
+
+.message-input-field:focus {
+  outline: none; /* Remove default outline */
+  border-color: #3b82f6; /* Blue-500 on focus */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); /* Custom focus ring */
+}
+
+.message-input-field::placeholder {
+  color: #9ca3af; /* Gray-400 placeholder text */
+}
+
+.message-input-field:disabled {
+  background-color: #e5e7eb; /* Gray-200 when disabled */
+  cursor: not-allowed; /* Indicate not interactive */
+}
+
+.send-button {
+  padding: 12px 24px;
+  border-radius: 9999px; /* Fully rounded */
+  font-weight: 600; /* Semi-bold text */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out; /* Smooth transition for hover/disabled states */
+}
+
+/* Styles for enabled send button */
+.send-button:not(:disabled) {
+  background-color: #3b82f6; /* Blue-600 */
+}
+
+.send-button:not(:disabled):hover {
+  background-color: #2563eb; /* Blue-700 on hover */
+}
+
+/* Styles for disabled send button */
+.send-button:disabled {
+  background-color: #93c5fd; /* Light blue when disabled */
+  cursor: not-allowed;
+}
+
+/* Dark theme styles */
+.dark .message-input-field {
+  background: #23272f;
+  color: #f3f4f6;
+  border: 1px solid #374151;
+}
+
+.dark .message-input-field:focus {
+  border-color: #f3f4f6;
+  box-shadow: 0 0 0 3px rgba(243, 244, 246, 0.2);
+}
+
+.dark .message-input-field::placeholder {
+  color: #b0b3b8;
+}
+
+.dark .message-input-field:disabled {
+  background-color: #23272f;
+  color: #888;
+}
+
+.dark .send-button:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.dark .send-button:not(:disabled):hover {
+  background-color: #1e40af;
+}
+
+.dark .send-button:disabled {
+  background-color: #23272f;
+  color: #888;
+}

@@ -1,0 +1,183 @@
+/* Styles for the main chat window container */
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 700px; /* Increased from 500px to 700px for desktop appeal */
+  height: 90vh; /* Make it take 90% of the viewport height */
+  background-color: #ffffff; /* White background */
+  border-radius: 8px; /* Slightly rounded corners */
+  border: 1.5px solid #e5e7eb; /* Subtle border for light mode */
+  box-shadow: 0 6px 24px 0 rgba(59, 130, 246, 0.07), 0 1.5px 4px 0 rgba(0,0,0,0.04); /* Subtle shadow for light mode */
+  overflow: hidden; /* Ensures content within rounds corners */
+}
+
+/* Chat Header Styles */
+.chat-header {
+  background: linear-gradient(to right, #3b82f6, #4f46e5); /* Blue to Indigo gradient */
+  color: white;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Header shadow */
+}
+
+.chat-title {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600; /* Semi-bold */
+}
+
+.clear-chat-button {
+  background-color: white;
+  color: #3b82f6; /* Blue text */
+  padding: 6px 12px;
+  border-radius: 9999px; /* Fully rounded (pill shape) */
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500; /* Medium weight */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out; /* Smooth transition on hover */
+}
+
+.clear-chat-button:hover {
+  background-color: #e0f2fe; /* Light blue on hover */
+}
+
+/* Message Display Area Styles */
+.messages-display {
+  flex: 1; /* Takes up remaining vertical space */
+  overflow-y: auto; /* Enables vertical scrolling */
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Space between message bubbles */
+}
+
+/* Custom scrollbar for better UX (for this specific element) */
+.messages-display::-webkit-scrollbar {
+  width: 8px;
+}
+
+.messages-display::-webkit-scrollbar-track {
+  background: #f0f2f5;
+  border-radius: 10px;
+}
+
+.messages-display::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.messages-display::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.empty-chat-message {
+  text-align: center;
+  color: #6b7280; /* Gray-500 */
+  margin-top: 40px;
+  font-style: italic;
+}
+
+/* Typing Indicator Styles */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between dots and text */
+  color: #6b7280; /* Gray-500 */
+  font-size: 0.875rem; /* 14px */
+  margin-left: 8px;
+}
+
+.typing-indicator span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #3b82f6; /* Blue-500 */
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate; /* Apply bounce animation */
+}
+
+/* Delay for each dot to create a wave effect */
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+/* Keyframes for the bounce animation */
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
+}
+
+/* Error Message Styles */
+.error-message {
+  color: #dc2626; /* Red-600 */
+  background-color: #fee2e2; /* Red-100 */
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* Message Input Area Styles */
+.message-input-area {
+  padding: 16px;
+  border-top: 1px solid #e5e7eb; /* Gray-200 border on top */
+  background-color: #f9fafb; /* Gray-50 background */
+}
+
+/* Spinner for buffering/loading */
+.buffering-spinner {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border: 3px solid #3b82f6;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+  .chat-window {
+    height: 100vh; /* Full height on smaller screens */
+    border-radius: 0; /* No rounded corners on full height */
+    box-shadow: none; /* No shadow on full height */
+  }
+}
+
+@media (min-width: 1200px) {
+  .chat-window {
+    max-width: 900px; /* Even wider on very large screens */
+  }
+}
+
+/* Dark theme styles */
+.dark .chat-window {
+  background-color: #23272f;
+  color: #f3f4f6;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
+.dark .chat-header {
+  background: linear-gradient(to right, #23272f, #23272f);
+  color: #f3f4f6;
+}
+
+.dark .clear-chat-button {
+  background-color: #23272f;
+  color: #f3f4f6;
+}
